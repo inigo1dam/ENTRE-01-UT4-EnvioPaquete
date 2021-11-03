@@ -55,9 +55,8 @@ public class Envio
      * (dependerá de cuántos paquetes estén a null)
      */
     public int getNumeroPaquetes() {
-        //TODO
-       return 0;
-
+       int numeroPaquetes = 0;
+    
     }
 
     /**

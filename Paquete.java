@@ -76,7 +76,7 @@ public class Paquete
      */
     public double calcularPesoVolumetrico() {
         double PesoVolumetrico;
-        PesoVolumetrico = this.peso/5000;
+        PesoVolumetrico = calcularVolumen()/5000;
         return PesoVolumetrico;
     }
 
@@ -101,23 +101,23 @@ public class Paquete
      * Se obtienen copias también de los objetos que contenga
      */
     public void obtenerCopia() {
-    
+
     }
-    
+
     /**
      * Representación textual del paquete
      *  (leer enunciado)
      */
     public String toString() {
-        String textoAlto ="Alto:"; 
-        String textoLargo ="Largo:"; 
-        String textoAncho = "Ancho:";
-        String texto = String.format("Descripcion del Paquete %20s %10.2f(cm) \n", textoAlto , dimension.getAlto() );
-        texto += String.format("%20s %10.2f(cm) \n", textoAncho , dimension.getAncho());     
-        texto += String.format("%20s %10.2f(cm) \n", textoLargo , dimension.getLargo()); 
-        texto += String.format("Peso Real %20s %10.2f(kg) \n", calcularPesoFacturable());
-        texto += String.format("Volumen %20s %10.2f(cm3) \n", calcularVolumen());
-        texto += String.format("Peso Volumetrico %20s %10.2f(kg) \n", calcularPesoVolumetrico());
+        String texto = "";
+        String peso2 = "Peso";
+        String peso3 = "Volumen";
+        String peso4 = "Peso Volumetrico";
+        texto += ("Descripcion del Paquete \n");
+        texto += dimension.toString();
+        texto += String.format("%20s %10.2f(cm) \n",peso2, peso);
+        texto += String.format("%20s %10.2f(cm3) \n",peso3, calcularVolumen());
+        texto += String.format("%20s %10.2f(cm)  \n",peso4, calcularPesoVolumetrico());  
         return texto;
     }
 
