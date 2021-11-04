@@ -17,7 +17,7 @@ public class Paquete
      * Crea el paquete con 40 , 30, 50 de
      * alto, ancho, largo (en cm) y peso 8 Kg
      */
-    public Paquete()    {
+    public Paquete(){
         dimension = new Dimension(40,30,50);
         peso = 8;
     }
@@ -100,8 +100,9 @@ public class Paquete
      * Devuelve una copia exacta al objeto actual
      * Se obtienen copias también de los objetos que contenga
      */
-    public void obtenerCopia() {
-
+    public Paquete obtenerCopia() {
+       Paquete copiado = new Paquete(dimension, peso);
+       return copiado;
     }
 
     /**
