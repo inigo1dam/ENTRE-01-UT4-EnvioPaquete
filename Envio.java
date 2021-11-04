@@ -87,7 +87,7 @@ public class Envio
         else if (paquete2==null){
             paquete2 = new Paquete();
         }
-        
+
         else if(paquete1!=null &&paquete2!=null&&paquete3!=null){
             System.out.println("No se admiten más paquetes en el envío");
         }
@@ -116,12 +116,12 @@ public class Envio
         }
         else if(getNumeroPaquetes()==2){
             pesoFacturable = Math.ceil(paquete1.calcularPesoFacturable() +
-            paquete2.calcularPesoFacturable());
+                paquete2.calcularPesoFacturable());
             CosteTotalEnvio = pesoFacturable * PRECIO_KILO;
         }
         else if(getNumeroPaquetes()==3){
             pesoFacturable = Math.ceil(paquete1.calcularPesoFacturable() +
-            paquete2.calcularPesoFacturable()) + paquete3.calcularPesoFacturable();
+                paquete2.calcularPesoFacturable()) + paquete3.calcularPesoFacturable();
             CosteTotalEnvio = pesoFacturable * PRECIO_KILO;
         }
         return CosteTotalEnvio;
@@ -133,12 +133,35 @@ public class Envio
      * (leer enunciado)
      */
     public String toString() {
-        String coste= "Coste total envío: ";
-        String resul = "";
-        resul += String.format("%20s %10.2f(€)\n",coste, calcularCosteTotalEnvio());
+        String texto = "Coste total envío:"; 
+        String resul = "Nº de paquetes: " + getNumeroPaquetes() + "\n";
+        if(getNumeroPaquetes() == 1){
+            resul += paquete1.toString();
+            resul += "\n";
+            resul += String.format("%20s %10.2f€\n",texto, calcularCosteTotalEnvio());
+        }
+        else if(getNumeroPaquetes() == 2){
+            resul += paquete1.toString();
+            resul += "\n";
+            resul += paquete2.toString();
+            resul += "\n";
+            resul += String.format("%20s %10.2f€\n",texto, calcularCosteTotalEnvio());
+        }
+        else if(getNumeroPaquetes() == 3){
+            resul += paquete1.toString();
+            resul += "\n";
+            resul += paquete2.toString();
+            resul += "\n";
+            resul += paquete3.toString();
+            resul += "\n";
+            resul += String.format("%20s %10.2f€\n",texto, calcularCosteTotalEnvio());
+        }
+        else{
+            resul += "\n";
+            resul += String.format("%20s %10.2f€\n",texto);
+        }
         return resul;
     }
-
     /**
      * Muestra en pantalla el objeto actual
      * Este método se incluye como método de prueba
